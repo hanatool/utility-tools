@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no' name='viewport' />
+  <meta name="description" content="Modern minimal stopwatch web app using Bootstrap 5">
+  <meta name="keywords" content="stopwatch, timer, bootstrap, web app">
+  <meta name="author" content="Stopwatch App">
+
+  <title>Stopwatch App</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="bg-light text-dark">
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">
+      <i class="fa-solid fa-stopwatch"></i> Stopwatch
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header class="py-5 text-center bg-white border-bottom">
+  <div class="container">
+    <h1 class="fw-bold">Modern Stopwatch</h1>
+    <p class="text-muted">Fast, simple, and responsive stopwatch built with Bootstrap 5</p>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="container py-5">
+
+  <div class="row justify-content-center">
+    <div class="col-lg-6 text-center">
+
+      <!-- STOPWATCH DISPLAY -->
+      <div class="card shadow-sm border-0 mb-4">
+        <div class="card-body">
+          <h2 id="display" class="display-4 fw-bold">00:00:00</h2>
+        </div>
+      </div>
+
+      <!-- BUTTONS -->
+      <div class="d-flex justify-content-center gap-2 mb-4">
+        <button class="btn btn-success" onclick="startTimer()">
+          <i class="fa fa-play"></i> Start
+        </button>
+        <button class="btn btn-warning" onclick="pauseTimer()">
+          <i class="fa fa-pause"></i> Pause
+        </button>
+        <button class="btn btn-danger" onclick="resetTimer()">
+          <i class="fa fa-rotate-left"></i> Reset
+        </button>
+      </div>
+
+      <!-- AD PLACEHOLDER -->
+      <div class="card border-secondary mb-4">
+        <div class="card-body text-center">
+          <p class="text-muted mb-1">Advertisement</p>
+          <div class="bg-light border rounded p-5">
+            <i class="fa-solid fa-bullhorn fa-2x text-secondary"></i>
+            <p class="mt-2 mb-0">Your Ad Here</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- DESCRIPTION -->
+      <section id="about" class="text-start">
+        <h4 class="fw-bold">Description</h4>
+        <p class="text-muted">
+          This is a lightweight stopwatch application built using Bootstrap 5.
+          It supports start, pause, and reset functionality with a clean modern UI.
+        </p>
+      </section>
+
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white text-center py-3">
+  <div class="container">
+    <small>© 2026 Stopwatch App. All rights reserved.</small>
+  </div>
+</footer>
+
+<!-- SCRIPT -->
+<script>
+  let timer = null;
+  let seconds = 0;
+  let running = false;
+
+  function formatTime(sec) {
+    let hrs = Math.floor(sec / 3600);
+    let mins = Math.floor((sec % 3600) / 60);
+    let secs = sec % 60;
+
+    return (
+      String(hrs).padStart(2, '0') + ":" +
+      String(mins).padStart(2, '0') + ":" +
+      String(secs).padStart(2, '0')
+    );
+  }
+
+  function updateDisplay() {
+    document.getElementById("display").innerText = formatTime(seconds);
+  }
+
+  function startTimer() {
+    if (running) return;
+    running = true;
+
+    timer = setInterval(() => {
+      seconds++;
+      updateDisplay();
+    }, 1000);
+  }
+
+  function pauseTimer() {
+    running = false;
+    clearInterval(timer);
+  }
+
+  function resetTimer() {
+    running = false;
+    clearInterval(timer);
+    seconds = 0;
+    updateDisplay();
+  }
+</script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

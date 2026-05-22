@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no' name='viewport' />
+  <meta name="description" content="Simple XML Formatter Tool - Clean, fast, and modern XML formatting online tool.">
+  <meta name="keywords" content="xml formatter, xml beautifier, online xml tool">
+  <meta name="author" content="XML Formatter Tool">
+
+  <title>XML Formatter Tool</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light text-dark">
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">
+      <i class="fa-solid fa-code"></i> XML Formatter
+    </a>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header class="py-5 text-center bg-white border-bottom">
+  <div class="container">
+    <h1 class="fw-bold">XML Formatter Tool</h1>
+    <p class="text-muted">Beautify, format, and validate your XML instantly in your browser.</p>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="container my-5">
+
+  <div class="row g-4">
+
+    <!-- TOOL BOX -->
+    <div class="col-lg-8">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+
+          <label class="form-label fw-semibold">Input XML</label>
+          <textarea id="xmlInput" class="form-control" rows="10" placeholder="Paste your XML here..."></textarea>
+
+          <div class="d-flex gap-2 mt-3">
+            <button class="btn btn-primary" onclick="formatXML()">
+              <i class="fa-solid fa-magic-wand-sparkles"></i> Format XML
+            </button>
+            <button class="btn btn-outline-secondary" onclick="clearXML()">
+              <i class="fa-solid fa-trash"></i> Clear
+            </button>
+          </div>
+
+          <hr>
+
+          <label class="form-label fw-semibold">Formatted XML</label>
+          <pre id="xmlOutput" class="bg-light p-3 border rounded" style="min-height:200px;"></pre>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- AD SPACE -->
+    <div class="col-lg-4">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body text-center">
+          <h6 class="text-muted">Advertisement</h6>
+          <div class="border rounded p-5 bg-white">
+            <i class="fa-solid fa-bullhorn fa-2x text-secondary"></i>
+            <p class="mt-2 mb-0 text-muted">Your Ad Here</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card border-0 shadow-sm mt-3">
+        <div class="card-body text-center">
+          <h6 class="text-muted">Sponsor</h6>
+          <div class="border rounded p-5 bg-white">
+            <i class="fa-solid fa-ad fa-2x text-secondary"></i>
+            <p class="mt-2 mb-0 text-muted">Banner Space</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-white border-top py-4 mt-5">
+  <div class="container text-center">
+    <p class="mb-0 text-muted">
+      © 2026 XML Formatter Tool. Built with Bootstrap 5.
+    </p>
+  </div>
+</footer>
+
+<!-- SCRIPT -->
+<script>
+  function formatXML() {
+    const input = document.getElementById("xmlInput").value;
+    const output = document.getElementById("xmlOutput");
+
+    try {
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(input, "application/xml");
+
+      const errorNode = xml.getElementsByTagName("parsererror")[0];
+      if (errorNode) {
+        output.textContent = "Invalid XML format!";
+        return;
+      }
+
+      const serializer = new XMLSerializer();
+      const formatted = formatPrettyXML(serializer.serializeToString(xml));
+      output.textContent = formatted;
+
+    } catch (e) {
+      output.textContent = "Error formatting XML.";
+    }
+  }
+
+  function formatPrettyXML(xml) {
+    let formatted = "";
+    let indent = 0;
+    const tab = "  ";
+
+    xml.split(/>\s*</).forEach(node => {
+      if (node.match(/^\/\w/)) indent--;
+      formatted += tab.repeat(indent) + "<" + node + ">\n";
+      if (node.match(/^<?\w[^>]*[^\/]$/)) indent++;
+    });
+
+    return formatted.substring(1, formatted.length - 2);
+  }
+
+  function clearXML() {
+    document.getElementById("xmlInput").value = "";
+    document.getElementById("xmlOutput").textContent = "";
+  }
+</script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

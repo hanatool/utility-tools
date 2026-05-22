@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no' name='viewport' />
+  <meta name="description" content="CSV to JSON converter tool - fast, simple, and modern web utility">
+  <meta name="keywords" content="CSV to JSON, converter, tool, bootstrap, web utility">
+  <meta name="author" content="CSV Converter Tool">
+
+  <title>CSV to JSON Converter</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light text-dark">
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">
+      <i class="fa-solid fa-file-csv text-primary"></i> CSV to JSON
+    </a>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header class="py-5 bg-white border-bottom">
+  <div class="container text-center">
+    <h1 class="fw-bold">CSV to JSON Converter</h1>
+    <p class="text-muted">Convert your CSV files into clean JSON format instantly. Simple, fast, and modern tool.</p>
+  </div>
+</header>
+
+<!-- AD SECTION -->
+<section class="py-3">
+  <div class="container">
+    <div class="alert alert-secondary text-center mb-0">
+      <strong>Advertisement Space</strong><br>
+      Your ad banner can be placed here
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<section class="py-4">
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- INPUT -->
+      <div class="col-lg-6">
+        <div class="card shadow-sm border-0">
+          <div class="card-body">
+            <h5 class="fw-bold mb-3"><i class="fa-solid fa-upload"></i> Upload CSV</h5>
+
+            <input type="file" id="csvFile" class="form-control mb-3" accept=".csv">
+
+            <textarea id="csvInput" class="form-control mb-3" rows="10" placeholder="Or paste CSV here..."></textarea>
+
+            <button class="btn btn-primary w-100" onclick="convertCSV()">
+              Convert to JSON
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- OUTPUT -->
+      <div class="col-lg-6">
+        <div class="card shadow-sm border-0">
+          <div class="card-body">
+            <h5 class="fw-bold mb-3"><i class="fa-solid fa-code"></i> JSON Output</h5>
+
+            <pre id="jsonOutput" class="bg-light p-3 border rounded" style="min-height: 300px; white-space: pre-wrap;"></pre>
+
+            <button class="btn btn-success w-100 mt-2" onclick="copyJSON()">
+              Copy JSON
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-white border-top py-4 mt-5">
+  <div class="container text-center text-muted">
+    <small>© 2026 CSV to JSON Converter. All rights reserved.</small>
+  </div>
+</footer>
+
+<!-- SCRIPT -->
+<script>
+  let parsedJSON = [];
+
+  document.getElementById("csvFile").addEventListener("change", function (e) {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function (event) {
+      document.getElementById("csvInput").value = event.target.result;
+    };
+    reader.readAsText(file);
+  });
+
+  function convertCSV() {
+    const csv = document.getElementById("csvInput").value.trim();
+    if (!csv) {
+      alert("Please upload or paste CSV data.");
+      return;
+    }
+
+    const lines = csv.split("\n").filter(line => line.trim() !== "");
+    const headers = lines[0].split(",").map(h => h.trim());
+
+    parsedJSON = [];
+
+    for (let i = 1; i < lines.length; i++) {
+      const values = lines[i].split(",");
+      let obj = {};
+
+      headers.forEach((header, index) => {
+        obj[header] = values[index] ? values[index].trim() : "";
+      });
+
+      parsedJSON.push(obj);
+    }
+
+    document.getElementById("jsonOutput").textContent =
+      JSON.stringify(parsedJSON, null, 2);
+  }
+
+  function copyJSON() {
+    if (!parsedJSON.length) {
+      alert("Nothing to copy!");
+      return;
+    }
+
+    navigator.clipboard.writeText(JSON.stringify(parsedJSON, null, 2));
+    alert("JSON copied to clipboard!");
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'
+        name='viewport' />
+
+    <title>Age Calculator</title>
+    <meta name="description" content="Simple and modern age calculator web app using Bootstrap 5">
+    <meta name="keywords" content="age calculator, birthday calculator, bootstrap tool">
+    <meta name="author" content="Age Calculator App">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light text-dark">
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-none stickty-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="#">
+                <i class="fa-solid fa-calendar-days me-2"></i>Age Calculator
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#calculator">Calculator</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ads">Ads</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="py-5 bg-white border-bottom">
+        <div class="container text-center">
+            <h1 class="fw-bold text-dark">Modern Age Calculator</h1>
+            <p class="text-muted mb-0">
+                Quickly calculate your age in years, months, and days with a clean Bootstrap UI.
+            </p>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="container my-5">
+
+        <div class="row g-4">
+
+            <!-- CALCULATOR -->
+            <div class="col-lg-8" id="calculator">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body p-4">
+
+                        <h4 class="fw-bold mb-3">
+                            <i class="fa-solid fa-calculator me-2 text-primary"></i>Age Calculator
+                        </h4>
+
+                        <div class="mb-3">
+                            <label class="form-label">Select Your Birth Date</label>
+                            <input type="date" id="birthDate" class="form-control">
+                        </div>
+
+                        <button class="btn btn-primary w-100" onclick="calculateAge()">
+                            Calculate Age
+                        </button>
+
+                        <div class="mt-4">
+                            <div id="result" class="alert alert-info d-none"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- ADS -->
+            <div class="col-lg-4" id="ads">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body text-center">
+
+                        <h6 class="fw-bold text-muted mb-3">Advertisement</h6>
+
+                        <div class="border rounded p-5 bg-light">
+                            <p class="text-muted mb-0">Ad Space</p>
+                            <small class="text-secondary">300x250 or banner ads here</small>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="card border-0 shadow-sm mt-3">
+                    <div class="card-body text-center">
+                        <h6 class="fw-bold text-muted">Another Ad Slot</h6>
+                        <div class="border rounded p-4 bg-light">
+                            <small class="text-secondary">You can place ads here</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-top py-4">
+        <div class="container text-center">
+            <p class="mb-0 text-muted">
+                © 2026 Age Calculator. Built with Bootstrap 5.
+            </p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script>
+        function calculateAge() {
+            const birthInput = document.getElementById("birthDate").value;
+            const result = document.getElementById("result");
+
+            if (!birthInput) {
+                result.classList.remove("d-none");
+                result.className = "alert alert-danger mt-3";
+                result.innerHTML = "Please select your birth date.";
+                return;
+            }
+
+            const birthDate = new Date(birthInput);
+            const today = new Date();
+
+            let years = today.getFullYear() - birthDate.getFullYear();
+            let months = today.getMonth() - birthDate.getMonth();
+            let days = today.getDate() - birthDate.getDate();
+
+            if (days < 0) {
+                months--;
+                days += 30;
+            }
+
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            result.classList.remove("d-none");
+            result.className = "alert alert-success mt-3";
+
+            result.innerHTML = `
+        <strong>Your Age:</strong><br>
+        ${years} Years, ${months} Months, ${days} Days
+    `;
+        }
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

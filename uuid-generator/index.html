@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no' name='viewport' />
+
+  <title>UUID Generator - Modern Tool</title>
+  <meta name="description" content="Free online UUID generator tool. Generate unique IDs instantly with one click. Fast, simple, and modern.">
+  <meta name="keywords" content="UUID generator, GUID generator, unique ID, online tool">
+  <meta name="author" content="UUID Generator Tool">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-light text-dark">
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-primary" href="#">
+      <i class="fa-solid fa-fingerprint me-2"></i>UUID Generator
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#generator">Generator</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header class="py-5 bg-white border-bottom">
+  <div class="container text-center">
+    <h1 class="fw-bold">UUID Generator Tool</h1>
+    <p class="text-muted">Generate secure and unique UUIDs instantly with one click. Simple, fast, and modern.</p>
+  </div>
+</header>
+
+<!-- AD SECTION TOP -->
+<div class="container my-4">
+  <div class="p-4 bg-white border rounded text-center text-muted">
+    <small>Advertisement Space</small>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container my-4" id="generator">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+
+          <h4 class="mb-3">Generate UUID</h4>
+
+          <div class="input-group mb-3">
+            <input type="text" id="uuidResult" class="form-control text-center" readonly placeholder="Click generate...">
+          </div>
+
+          <button class="btn btn-primary w-100 mb-2" onclick="generateUUID()">
+            <i class="fa-solid fa-bolt me-2"></i>Generate UUID
+          </button>
+
+          <button class="btn btn-outline-secondary w-100" onclick="copyUUID()">
+            <i class="fa-regular fa-copy me-2"></i>Copy UUID
+          </button>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- AD SECTION MIDDLE -->
+<div class="container my-4">
+  <div class="p-4 bg-white border rounded text-center text-muted">
+    <small>Advertisement Space</small>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="container my-5">
+  <div class="bg-white p-4 border rounded">
+    <h4>About This Tool</h4>
+    <p class="text-muted mb-0">
+      This UUID generator helps you create universally unique identifiers (UUID v4).
+      It is useful for developers, APIs, databases, and software systems that require unique keys.
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-white border-top py-4 mt-5">
+  <div class="container text-center text-muted">
+    <p class="mb-0">© 2026 UUID Generator. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- SCRIPT FUNCTION -->
+<script>
+  function generateUUID() {
+    // UUID v4 generator
+    let uuid = ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+      (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+    );
+    document.getElementById("uuidResult").value = uuid;
+  }
+
+  function copyUUID() {
+    let uuidField = document.getElementById("uuidResult");
+    uuidField.select();
+    uuidField.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(uuidField.value);
+  }
+</script>
+
+</body>
+</html>

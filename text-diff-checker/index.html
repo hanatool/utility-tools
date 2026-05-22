@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Text Diff Checker - Compare two texts and highlight differences easily."/>
+  <meta name="keywords" content="text diff, checker, compare text, diff tool"/>
+  <meta name="author" content="Text Diff Checker"/>
+
+  <title>Text Diff Checker</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light text-dark">
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">
+      <i class="fa-solid fa-code-compare text-primary"></i> Text Diff Checker
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#compare">Compare</a></li>
+        <li class="nav-item"><a class="nav-link" href="#ads">Ads</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header class="py-5 bg-white border-bottom">
+  <div class="container text-center">
+    <h1 class="fw-bold">Compare Text Instantly</h1>
+    <p class="text-muted mb-0">
+      Paste two texts and see the differences in real time. Simple, fast, and clean.
+    </p>
+  </div>
+</header>
+
+<!-- MAIN -->
+<section id="compare" class="py-5">
+  <div class="container">
+
+    <!-- ADS TOP -->
+    <div id="ads" class="mb-4 p-3 bg-white border rounded text-center text-muted">
+      Advertisement Space
+    </div>
+
+    <div class="row g-4">
+
+      <!-- INPUT 1 -->
+      <div class="col-md-6">
+        <div class="card shadow-sm border-0">
+          <div class="card-header bg-white fw-bold">
+            <i class="fa-regular fa-file-lines text-primary"></i> Text A
+          </div>
+          <div class="card-body">
+            <textarea id="textA" class="form-control" rows="10" placeholder="Enter first text..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- INPUT 2 -->
+      <div class="col-md-6">
+        <div class="card shadow-sm border-0">
+          <div class="card-header bg-white fw-bold">
+            <i class="fa-regular fa-file-lines text-danger"></i> Text B
+          </div>
+          <div class="card-body">
+            <textarea id="textB" class="form-control" rows="10" placeholder="Enter second text..."></textarea>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BUTTON -->
+    <div class="text-center my-4">
+      <button class="btn btn-primary px-4" onclick="compareText()">
+        <i class="fa-solid fa-code-compare"></i> Compare
+      </button>
+    </div>
+
+    <!-- RESULT -->
+    <div class="card shadow-sm border-0">
+      <div class="card-header bg-white fw-bold">
+        Result
+      </div>
+      <div class="card-body">
+        <pre id="result" class="mb-0"></pre>
+      </div>
+    </div>
+
+    <!-- ADS BOTTOM -->
+    <div class="mt-4 p-3 bg-white border rounded text-center text-muted">
+      Advertisement Space
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-white border-top py-4 mt-5">
+  <div class="container text-center text-muted">
+    <p class="mb-0">
+      © 2026 Text Diff Checker. Built with Bootstrap 5.
+    </p>
+  </div>
+</footer>
+
+<!-- SCRIPT -->
+<script>
+function compareText() {
+  const a = document.getElementById("textA").value.split("\n");
+  const b = document.getElementById("textB").value.split("\n");
+
+  let output = "";
+
+  const maxLength = Math.max(a.length, b.length);
+
+  for (let i = 0; i < maxLength; i++) {
+    const lineA = a[i] || "";
+    const lineB = b[i] || "";
+
+    if (lineA === lineB) {
+      output += "✓ " + lineA + "\n";
+    } else {
+      if (lineA) output += "- " + lineA + "\n";
+      if (lineB) output += "+ " + lineB + "\n";
+    }
+  }
+
+  document.getElementById("result").textContent = output;
+}
+</script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

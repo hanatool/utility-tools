@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no' name='viewport' />
+  <meta name="description" content="UUID Bulk Generator - Generate multiple UUIDs instantly with a clean and modern interface.">
+  <meta name="keywords" content="UUID generator, bulk UUID, online UUID tool">
+  <meta name="author" content="UUID Tool">
+
+  <title>UUID Bulk Generator</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light text-dark">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">
+        <i class="fa-solid fa-fingerprint text-primary"></i> UUID Bulk Generator
+      </a>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="py-5 text-center bg-white border-bottom">
+    <div class="container">
+      <h1 class="fw-bold">UUID Bulk Generator</h1>
+      <p class="text-muted">Generate multiple UUIDs instantly with one click. Fast, simple, and free.</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container py-5">
+
+    <div class="row g-4">
+
+      <!-- Generator Card -->
+      <div class="col-lg-8">
+        <div class="card shadow-sm border-0">
+          <div class="card-body">
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Amount</label>
+              <input type="number" id="uuidCount" class="form-control" value="5" min="1" max="100">
+            </div>
+
+            <button class="btn btn-primary w-100 mb-3" onclick="generateUUIDs()">
+              <i class="fa-solid fa-bolt"></i> Generate UUIDs
+            </button>
+
+            <textarea id="output" class="form-control" rows="12" placeholder="Generated UUIDs will appear here..." readonly></textarea>
+
+            <div class="d-flex gap-2 mt-3">
+              <button class="btn btn-outline-secondary w-50" onclick="copyUUIDs()">
+                <i class="fa-solid fa-copy"></i> Copy
+              </button>
+              <button class="btn btn-outline-danger w-50" onclick="clearUUIDs()">
+                <i class="fa-solid fa-trash"></i> Clear
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Ad Section -->
+      <div class="col-lg-4">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body text-center">
+            <h6 class="text-muted mb-3">Advertisement</h6>
+            <div class="bg-light border rounded p-5">
+              <i class="fa-solid fa-ad fa-2x text-secondary"></i>
+              <p class="mt-3 mb-0 text-muted">Your Ad Space Here</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-top py-4 mt-5">
+    <div class="container text-center">
+      <p class="mb-0 text-muted">&copy; 2026 UUID Bulk Generator. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    function generateUUID() {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        const r = Math.random() * 16 | 0;
+        const v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    }
+
+    function generateUUIDs() {
+      const count = parseInt(document.getElementById("uuidCount").value);
+      let result = "";
+
+      for (let i = 0; i < count; i++) {
+        result += generateUUID() + "\n";
+      }
+
+      document.getElementById("output").value = result;
+    }
+
+    function copyUUIDs() {
+      const output = document.getElementById("output");
+      output.select();
+      document.execCommand("copy");
+      alert("UUIDs copied to clipboard!");
+    }
+
+    function clearUUIDs() {
+      document.getElementById("output").value = "";
+    }
+  </script>
+
+</body>
+</html>
