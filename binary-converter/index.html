@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,136 +20,140 @@
 
 <body class="bg-light text-dark">
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
-  <div class="container">
-    <a class="navbar-brand fw-bold text-primary" href="#">
-      <i class="fa-solid fa-code"></i> Binary Converter
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">
+        <i class="fa-solid fa-code text-primary me-2"></i> Binary Converter
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#converter">Converter</a></li>
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- HEADER -->
-<header class="py-5 bg-white border-bottom">
-  <div class="container text-center">
-    <h1 class="fw-bold text-dark">Binary Converter Tool</h1>
-    <p class="text-muted">
-      Convert text to binary and binary back to text instantly with a clean modern tool.
-    </p>
-  </div>
-</header>
-
-<!-- ADS SECTION -->
-<div class="container my-3">
-  <div class="alert alert-secondary text-center">
-    <strong>Advertisement Space</strong><br>
-    Your ad can be placed here
-  </div>
-</div>
-
-<!-- CONVERTER -->
-<section id="converter" class="py-4">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-
-        <div class="card shadow-sm border-0">
-          <div class="card-body">
-
-            <div class="mb-3">
-              <label class="form-label fw-semibold">Input</label>
-              <textarea id="inputText" class="form-control" rows="4" placeholder="Enter text or binary..."></textarea>
-            </div>
-
-            <div class="d-flex gap-2 mb-3">
-              <button class="btn btn-primary" onclick="textToBinary()">
-                <i class="fa-solid fa-arrow-right"></i> Text → Binary
-              </button>
-              <button class="btn btn-success" onclick="binaryToText()">
-                <i class="fa-solid fa-arrow-left"></i> Binary → Text
-              </button>
-              <button class="btn btn-outline-danger" onclick="clearAll()">
-                <i class="fa-solid fa-trash"></i> Clear
-              </button>
-            </div>
-
-            <div class="mb-3">
-              <label class="form-label fw-semibold">Output</label>
-              <textarea id="outputText" class="form-control" rows="4" readonly></textarea>
-            </div>
-
-          </div>
-        </div>
-
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#converter">Converter</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        </ul>
       </div>
     </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="py-5 bg-white border-bottom">
+    <div class="container text-center">
+      <h1 class="fw-bold text-dark">Binary Converter Tool</h1>
+      <p class="text-muted">
+        Convert text to binary and binary back to text instantly with a clean modern tool.
+      </p>
+    </div>
+  </header>
+
+  <!-- ADS SECTION -->
+  <div class="container my-3">
+    <div class="alert alert-secondary text-center">
+      <strong>Advertisement Space</strong><br>
+      Your ad can be placed here
+    </div>
   </div>
-</section>
 
-<!-- ABOUT -->
-<section id="about" class="py-5 bg-white border-top">
-  <div class="container text-center">
-    <h3 class="fw-bold">About This Tool</h3>
-    <p class="text-muted">
-      This binary converter helps you convert plain text into binary code and decode binary back into readable text.
-      It is fast, lightweight, and works directly in your browser.
-    </p>
-  </div>
-</section>
+  <!-- CONVERTER -->
+  <section id="converter" class="py-4">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
 
-<!-- FOOTER -->
-<footer class="py-4 bg-white border-top">
-  <div class="container text-center">
-    <p class="mb-0 text-muted">
-      © 2026 Binary Converter Tool. All rights reserved.
-    </p>
-  </div>
-</footer>
+          <div class="card shadow-sm border-0">
+            <div class="card-body">
 
-<!-- SCRIPT -->
-<script>
-  function textToBinary() {
-    let text = document.getElementById("inputText").value;
-    let result = "";
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Input</label>
+                <textarea id="inputText" class="form-control" rows="4" placeholder="Enter text or binary..."></textarea>
+              </div>
 
-    for (let i = 0; i < text.length; i++) {
-      result += text.charCodeAt(i).toString(2).padStart(8, '0') + " ";
+              <div class="d-flex gap-2 mb-3">
+                <button class="btn btn-primary" onclick="textToBinary()">
+                  <i class="fa-solid fa-arrow-right"></i> Text → Binary
+                </button>
+                <button class="btn btn-success" onclick="binaryToText()">
+                  <i class="fa-solid fa-arrow-left"></i> Binary → Text
+                </button>
+                <button class="btn btn-outline-danger" onclick="clearAll()">
+                  <i class="fa-solid fa-trash"></i> Clear
+                </button>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Output</label>
+                <textarea id="outputText" class="form-control" rows="4" readonly></textarea>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-5 bg-white border-top">
+    <div class="container text-center">
+      <h3 class="fw-bold">About This Tool</h3>
+      <p class="text-muted">
+        This binary converter helps you convert plain text into binary code and decode binary back into readable text.
+        It is fast, lightweight, and works directly in your browser.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-4 bg-white border-top">
+    <div class="container text-center">
+      <p class="mb-0 text-muted">
+        © <script type='text/javascript'>
+          var creditsyear = new Date();
+          document.write(creditsyear.getFullYear());
+        </script> Binary Converter Tool. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    function textToBinary() {
+      let text = document.getElementById("inputText").value;
+      let result = "";
+
+      for (let i = 0; i < text.length; i++) {
+        result += text.charCodeAt(i).toString(2).padStart(8, '0') + " ";
+      }
+
+      document.getElementById("outputText").value = result.trim();
     }
 
-    document.getElementById("outputText").value = result.trim();
-  }
+    function binaryToText() {
+      let binary = document.getElementById("inputText").value.trim();
+      let bytes = binary.split(" ");
+      let result = "";
 
-  function binaryToText() {
-    let binary = document.getElementById("inputText").value.trim();
-    let bytes = binary.split(" ");
-    let result = "";
+      for (let i = 0; i < bytes.length; i++) {
+        result += String.fromCharCode(parseInt(bytes[i], 2));
+      }
 
-    for (let i = 0; i < bytes.length; i++) {
-      result += String.fromCharCode(parseInt(bytes[i], 2));
+      document.getElementById("outputText").value = result;
     }
 
-    document.getElementById("outputText").value = result;
-  }
+    function clearAll() {
+      document.getElementById("inputText").value = "";
+      document.getElementById("outputText").value = "";
+    }
+  </script>
 
-  function clearAll() {
-    document.getElementById("inputText").value = "";
-    document.getElementById("outputText").value = "";
-  }
-</script>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>

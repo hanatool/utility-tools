@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no' name='viewport' />
-  <meta name="description" content="UUID Bulk Generator - Generate multiple UUIDs instantly with a clean and modern interface.">
+  <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'
+    name='viewport' />
+  <meta name="description"
+    content="UUID Bulk Generator - Generate multiple UUIDs instantly with a clean and modern interface.">
   <meta name="keywords" content="UUID generator, bulk UUID, online UUID tool">
   <meta name="author" content="UUID Tool">
 
@@ -19,10 +22,10 @@
 <body class="bg-light text-dark">
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
     <div class="container">
       <a class="navbar-brand fw-bold" href="#">
-        <i class="fa-solid fa-fingerprint text-primary"></i> UUID Bulk Generator
+        <i class="fa-solid fa-fingerprint text-primary me-2"></i>UUID Bulk Generator
       </a>
     </div>
   </nav>
@@ -54,7 +57,8 @@
               <i class="fa-solid fa-bolt"></i> Generate UUIDs
             </button>
 
-            <textarea id="output" class="form-control" rows="12" placeholder="Generated UUIDs will appear here..." readonly></textarea>
+            <textarea id="output" class="form-control" rows="12" placeholder="Generated UUIDs will appear here..."
+              readonly></textarea>
 
             <div class="d-flex gap-2 mt-3">
               <button class="btn btn-outline-secondary w-50" onclick="copyUUIDs()">
@@ -89,14 +93,17 @@
   <!-- Footer -->
   <footer class="bg-white border-top py-4 mt-5">
     <div class="container text-center">
-      <p class="mb-0 text-muted">&copy; 2026 UUID Bulk Generator. All rights reserved.</p>
+      <p class="mb-0 text-muted">© <script type='text/javascript'>
+          var creditsyear = new Date();
+          document.write(creditsyear.getFullYear());
+        </script> UUID Bulk Generator. All rights reserved.</p>
     </div>
   </footer>
 
   <!-- Script -->
   <script>
     function generateUUID() {
-      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
         const r = Math.random() * 16 | 0;
         const v = c === 'x' ? r : (r & 0x3 | 0x8);
         return v.toString(16);
@@ -127,4 +134,5 @@
   </script>
 
 </body>
+
 </html>

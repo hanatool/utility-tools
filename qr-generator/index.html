@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Modern QR Code Generator using Bootstrap 5. Generate QR codes instantly and easily." />
+  <meta name="description"
+    content="Modern QR Code Generator using Bootstrap 5. Generate QR codes instantly and easily." />
   <meta name="keywords" content="QR Generator, QR Code, Bootstrap Tool, Online QR Maker" />
   <meta name="author" content="QR Generator App" />
 
@@ -21,135 +23,139 @@
 
 <body class="bg-light text-dark">
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
-  <div class="container">
-    <a class="navbar-brand fw-bold" href="#">
-      <i class="fa-solid fa-qrcode text-primary"></i> QR Generator
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">
+        <i class="fa-solid fa-qrcode text-primary me-2"></i> QR Generator
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#generator">Generator</a></li>
-        <li class="nav-item"><a class="nav-link" href="#ads">Ads</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- HEADER / HERO -->
-<header class="py-5 bg-white border-bottom">
-  <div class="container text-center">
-    <h1 class="fw-bold">Free QR Code Generator</h1>
-    <p class="text-muted">
-      Create QR codes instantly for links, text, and more. Fast, simple, and modern tool built with Bootstrap.
-    </p>
-  </div>
-</header>
-
-<!-- ADS TOP -->
-<section id="ads" class="py-3">
-  <div class="container">
-    <div class="bg-white border rounded p-4 text-center text-muted">
-      <i class="fa-solid fa-bullhorn"></i> Advertisement Space (Top Banner)
-    </div>
-  </div>
-</section>
-
-<!-- GENERATOR -->
-<section id="generator" class="py-4">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-6">
-
-        <div class="card shadow-sm border-0">
-          <div class="card-body p-4">
-
-            <h4 class="fw-bold mb-3 text-center">
-              Generate Your QR Code
-            </h4>
-
-            <div class="mb-3">
-              <label class="form-label">Enter Text or URL</label>
-              <input type="text" id="qrText" class="form-control" placeholder="https://example.com">
-            </div>
-
-            <button class="btn btn-primary w-100 mb-3" onclick="generateQR()">
-              <i class="fa-solid fa-bolt"></i> Generate QR
-            </button>
-
-            <div class="text-center">
-              <div id="qrcode" class="d-flex justify-content-center"></div>
-            </div>
-
-          </div>
-        </div>
-
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#generator">Generator</a></li>
+          <li class="nav-item"><a class="nav-link" href="#ads">Ads</a></li>
+        </ul>
       </div>
     </div>
-  </div>
-</section>
+  </nav>
 
-<!-- ADS MIDDLE -->
-<section class="py-4">
-  <div class="container">
-    <div class="bg-white border rounded p-4 text-center text-muted">
-      <i class="fa-solid fa-ad"></i> Advertisement Space (Middle Banner)
+  <!-- HEADER / HERO -->
+  <header class="py-5 bg-white border-bottom">
+    <div class="container text-center">
+      <h1 class="fw-bold">Free QR Code Generator</h1>
+      <p class="text-muted">
+        Create QR codes instantly for links, text, and more. Fast, simple, and modern tool built with Bootstrap.
+      </p>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- DESCRIPTION -->
-<section class="py-4 bg-white border-top border-bottom">
-  <div class="container text-center">
-    <h4 class="fw-bold">About This Tool</h4>
-    <p class="text-muted mb-0">
-      This QR Generator is a lightweight, responsive web tool built with Bootstrap.
-      It allows users to create QR codes instantly without any login or installation.
-    </p>
-  </div>
-</section>
+  <!-- ADS TOP -->
+  <section id="ads" class="py-3">
+    <div class="container">
+      <div class="bg-white border rounded p-4 text-center text-muted">
+        <i class="fa-solid fa-bullhorn"></i> Advertisement Space (Top Banner)
+      </div>
+    </div>
+  </section>
 
-<!-- FOOTER -->
-<footer class="bg-white py-4 border-top">
-  <div class="container text-center">
-    <p class="mb-0 text-muted">
-      © 2026 QR Generator. Built with Bootstrap 5.
-    </p>
-  </div>
-</footer>
+  <!-- GENERATOR -->
+  <section id="generator" class="py-4">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
 
-<!-- SCRIPT -->
-<script>
-  let qr;
+          <div class="card shadow-sm border-0">
+            <div class="card-body p-4">
 
-  function generateQR() {
-    const text = document.getElementById("qrText").value;
-    const qrContainer = document.getElementById("qrcode");
+              <h4 class="fw-bold mb-3 text-center">
+                Generate Your QR Code
+              </h4>
 
-    qrContainer.innerHTML = "";
+              <div class="mb-3">
+                <label class="form-label">Enter Text or URL</label>
+                <input type="text" id="qrText" class="form-control" placeholder="https://example.com">
+              </div>
 
-    if (!text) {
-      alert("Please enter text or URL");
-      return;
+              <button class="btn btn-primary w-100 mb-3" onclick="generateQR()">
+                <i class="fa-solid fa-bolt"></i> Generate QR
+              </button>
+
+              <div class="text-center">
+                <div id="qrcode" class="d-flex justify-content-center"></div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADS MIDDLE -->
+  <section class="py-4">
+    <div class="container">
+      <div class="bg-white border rounded p-4 text-center text-muted">
+        <i class="fa-solid fa-ad"></i> Advertisement Space (Middle Banner)
+      </div>
+    </div>
+  </section>
+
+  <!-- DESCRIPTION -->
+  <section class="py-4 bg-white border-top border-bottom">
+    <div class="container text-center">
+      <h4 class="fw-bold">About This Tool</h4>
+      <p class="text-muted mb-0">
+        This QR Generator is a lightweight, responsive web tool built with Bootstrap.
+        It allows users to create QR codes instantly without any login or installation.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-white py-4 border-top">
+    <div class="container text-center">
+      <p class="mb-0 text-muted">
+        © <script type='text/javascript'>
+          var creditsyear = new Date();
+          document.write(creditsyear.getFullYear());
+        </script> QR Generator. Built with Bootstrap 5.
+      </p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    let qr;
+
+    function generateQR() {
+      const text = document.getElementById("qrText").value;
+      const qrContainer = document.getElementById("qrcode");
+
+      qrContainer.innerHTML = "";
+
+      if (!text) {
+        alert("Please enter text or URL");
+        return;
+      }
+
+      qr = new QRCode(qrContainer, {
+        text: text,
+        width: 180,
+        height: 180,
+        colorDark: "#000000",
+        colorLight: "#ffffff"
+      });
     }
+  </script>
 
-    qr = new QRCode(qrContainer, {
-      text: text,
-      width: 180,
-      height: 180,
-      colorDark: "#000000",
-      colorLight: "#ffffff"
-    });
-  }
-</script>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>

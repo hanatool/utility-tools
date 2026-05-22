@@ -1,136 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no' name='viewport' />
-    <meta name="description" content="A simple, modern JSON Formatter built with Bootstrap 5">
-    <meta name="keywords" content="JSON formatter, beautify JSON, bootstrap tool">
-    <meta name="author" content="JSON Formatter Tool">
-    <title>JSON Formatter</title>
+  <meta charset="UTF-8">
+  <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'
+    name='viewport' />
+  <meta name="description" content="A simple, modern JSON Formatter built with Bootstrap 5">
+  <meta name="keywords" content="JSON formatter, beautify JSON, bootstrap tool">
+  <meta name="author" content="JSON Formatter Tool">
+  <title>JSON Formatter</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body class="bg-light text-dark">
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="container-fluid">
-    <a class="navbar-brand fw-bold" href="#"><i class="fa-solid fa-code"></i> JSON Formatter</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#tool">Tool</a></li>
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- Header -->
-<header class="py-5 text-center bg-white border-bottom">
-  <div class="container">
-    <h1 class="fw-bold">Modern JSON Formatter</h1>
-    <p class="text-muted">Format, beautify, and validate your JSON instantly using a clean Bootstrap interface.</p>
-  </div>
-</header>
-
-<!-- Ad Section Top -->
-<div class="container my-3">
-  <div class="alert alert-warning text-center">
-    Advertisement Space (Top Banner)
-  </div>
-</div>
-
-<!-- Tool Section -->
-<section id="tool" class="container my-4">
-  <div class="row g-3">
-
-    <div class="col-12 col-lg-6">
-      <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white">
-          <i class="fa-solid fa-input-text"></i> Input JSON
-        </div>
-        <div class="card-body">
-          <textarea id="jsonInput" class="form-control" rows="12" placeholder="Paste your JSON here..."></textarea>
-          <button class="btn btn-primary mt-3 w-100" onclick="formatJSON()">
-            <i class="fa-solid fa-wand-magic-sparkles"></i> Format JSON
-          </button>
-        </div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">
+        <i class="fa-solid fa-code me-2"></i> JSON Formatter</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tool">Tool</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        </ul>
       </div>
     </div>
+  </nav>
 
-    <div class="col-12 col-lg-6">
-      <div class="card shadow-sm">
-        <div class="card-header bg-success text-white">
-          <i class="fa-solid fa-output"></i> Output
-        </div>
-        <div class="card-body">
-          <pre id="jsonOutput" class="bg-light p-3 border rounded" style="min-height:300px;"></pre>
-          <button class="btn btn-secondary w-100 mt-3" onclick="copyJSON()">
-            <i class="fa-solid fa-copy"></i> Copy Output
-          </button>
+  <!-- Header -->
+  <header class="py-5 text-center bg-white border-bottom">
+    <div class="container">
+      <h1 class="fw-bold">Modern JSON Formatter</h1>
+      <p class="text-muted">Format, beautify, and validate your JSON instantly using a clean Bootstrap interface.</p>
+    </div>
+  </header>
+
+  <!-- Ad Section Top -->
+  <div class="container my-3">
+    <div class="alert alert-warning text-center">
+      Advertisement Space (Top Banner)
+    </div>
+  </div>
+
+  <!-- Tool Section -->
+  <section id="tool" class="container my-4">
+    <div class="row g-3">
+
+      <div class="col-12 col-lg-6">
+        <div class="card shadow-sm">
+          <div class="card-header bg-primary text-white">
+            <i class="fa-solid fa-input-text"></i> Input JSON
+          </div>
+          <div class="card-body">
+            <textarea id="jsonInput" class="form-control" rows="12" placeholder="Paste your JSON here..."></textarea>
+            <button class="btn btn-primary mt-3 w-100" onclick="formatJSON()">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> Format JSON
+            </button>
+          </div>
         </div>
       </div>
+
+      <div class="col-12 col-lg-6">
+        <div class="card shadow-sm">
+          <div class="card-header bg-success text-white">
+            <i class="fa-solid fa-output"></i> Output
+          </div>
+          <div class="card-body">
+            <pre id="jsonOutput" class="bg-light p-3 border rounded" style="min-height:300px;"></pre>
+            <button class="btn btn-secondary w-100 mt-3" onclick="copyJSON()">
+              <i class="fa-solid fa-copy"></i> Copy Output
+            </button>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </section>
 
+  <!-- Mid Ad -->
+  <div class="container my-3">
+    <div class="alert alert-info text-center">
+      Advertisement Space (Middle Banner)
+    </div>
   </div>
-</section>
 
-<!-- Mid Ad -->
-<div class="container my-3">
-  <div class="alert alert-info text-center">
-    Advertisement Space (Middle Banner)
-  </div>
-</div>
+  <!-- About -->
+  <section id="about" class="container my-5">
+    <div class="bg-white p-4 rounded shadow-sm">
+      <h3>About This Tool</h3>
+      <p class="text-muted">
+        This JSON Formatter helps developers quickly beautify and validate JSON data. It is built with Bootstrap 5 for a
+        modern, responsive, and minimal design.
+      </p>
+    </div>
+  </section>
 
-<!-- About -->
-<section id="about" class="container my-5">
-  <div class="bg-white p-4 rounded shadow-sm">
-    <h3>About This Tool</h3>
-    <p class="text-muted">
-      This JSON Formatter helps developers quickly beautify and validate JSON data. It is built with Bootstrap 5 for a modern, responsive, and minimal design.
-    </p>
-  </div>
-</section>
+  <!-- Footer -->
+  <footer class="bg-primary text-white text-center py-3 mt-5">
+    <div class="container">
+      <p class="mb-0">© <script type='text/javascript'>
+          var creditsyear = new Date();
+          document.write(creditsyear.getFullYear());
+        </script> JSON Formatter Tool. All rights reserved.</p>
+    </div>
+  </footer>
 
-<!-- Footer -->
-<footer class="bg-primary text-white text-center py-3 mt-5">
-  <div class="container">
-    <p class="mb-0">&copy; 2026 JSON Formatter Tool. All rights reserved.</p>
-  </div>
-</footer>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Script -->
+  <script>
+    function formatJSON() {
+      const input = document.getElementById('jsonInput').value;
+      const output = document.getElementById('jsonOutput');
 
-<!-- Script -->
-<script>
-function formatJSON() {
-    const input = document.getElementById('jsonInput').value;
-    const output = document.getElementById('jsonOutput');
-
-    try {
+      try {
         const parsed = JSON.parse(input);
         output.textContent = JSON.stringify(parsed, null, 4);
-    } catch (e) {
+      } catch (e) {
         output.textContent = "Invalid JSON: " + e.message;
+      }
     }
-}
 
-function copyJSON() {
-    const output = document.getElementById('jsonOutput').textContent;
-    navigator.clipboard.writeText(output).then(() => {
+    function copyJSON() {
+      const output = document.getElementById('jsonOutput').textContent;
+      navigator.clipboard.writeText(output).then(() => {
         alert('Copied to clipboard!');
-    });
-}
-</script>
+      });
+    }
+  </script>
 
 </body>
+
 </html>

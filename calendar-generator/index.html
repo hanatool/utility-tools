@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no' name='viewport' />
-    <meta name="description" content="Modern Calendar Generator - Simple, responsive, and lightweight calendar tool built with Bootstrap 5.">
+    <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'
+        name='viewport' />
+    <meta name="description"
+        content="Modern Calendar Generator - Simple, responsive, and lightweight calendar tool built with Bootstrap 5.">
     <meta name="keywords" content="calendar, generator, bootstrap, modern calendar">
     <meta name="author" content="Calendar Generator">
     <title>Calendar Generator</title>
@@ -14,147 +17,156 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body class="bg-light text-dark">
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="#">
-            <i class="fa-solid fa-calendar-days me-2"></i>Calendar Generator
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navMenu">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#calendar">Calendar</a></li>
-                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<!-- Header -->
-<header id="home" class="py-5 text-center bg-white shadow-none stickty-top">
-    <div class="container">
-        <h1 class="fw-bold">Modern Calendar Generator</h1>
-        <p class="text-muted">Create and view a clean, responsive monthly calendar instantly using Bootstrap 5.</p>
-    </div>
-</header>
-
-<!-- Ad Space -->
-<section class="container my-4">
-    <div class="p-4 text-center bg-warning-subtle border rounded">
-        <p class="mb-0 fw-semibold">Advertisement Space</p>
-        <small class="text-muted">Your ad banner can appear here</small>
-    </div>
-</section>
-
-<!-- Calendar Section -->
-<section id="calendar" class="container my-4">
-    <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-            <h5 class="mb-0" id="monthYear"></h5>
-            <div>
-                <button class="btn btn-light btn-sm" onclick="prevMonth()"><i class="fa fa-chevron-left"></i></button>
-                <button class="btn btn-light btn-sm" onclick="nextMonth()"><i class="fa fa-chevron-right"></i></button>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fa-solid fa-calendar-days me-2"></i>Calendar Generator
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#calendar">Calendar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                </ul>
             </div>
         </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered text-center">
-                    <thead class="table-light">
-                        <tr>
-                            <th>Sun</th>
-                            <th>Mon</th>
-                            <th>Tue</th>
-                            <th>Wed</th>
-                            <th>Thu</th>
-                            <th>Fri</th>
-                            <th>Sat</th>
-                        </tr>
-                    </thead>
-                    <tbody id="calendarBody"></tbody>
-                </table>
+    </nav>
+
+    <!-- Header -->
+    <header id="home" class="py-5 text-center bg-white shadow-none">
+        <div class="container">
+            <h1 class="fw-bold">Modern Calendar Generator</h1>
+            <p class="text-muted">Create and view a clean, responsive monthly calendar instantly using Bootstrap 5.</p>
+        </div>
+    </header>
+
+    <!-- Ad Space -->
+    <section class="container my-4">
+        <div class="p-4 text-center bg-warning-subtle border rounded">
+            <p class="mb-0 fw-semibold">Advertisement Space</p>
+            <small class="text-muted">Your ad banner can appear here</small>
+        </div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section id="calendar" class="container my-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0" id="monthYear"></h5>
+                <div>
+                    <button class="btn btn-light btn-sm" onclick="prevMonth()"><i
+                            class="fa fa-chevron-left"></i></button>
+                    <button class="btn btn-light btn-sm" onclick="nextMonth()"><i
+                            class="fa fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Sun</th>
+                                <th>Mon</th>
+                                <th>Tue</th>
+                                <th>Wed</th>
+                                <th>Thu</th>
+                                <th>Fri</th>
+                                <th>Sat</th>
+                            </tr>
+                        </thead>
+                        <tbody id="calendarBody"></tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Description -->
-<section id="about" class="container my-5">
-    <div class="bg-white p-4 rounded shadow-sm">
-        <h3>About This Tool</h3>
-        <p class="text-muted">
-            This Calendar Generator is a lightweight, responsive web application built with Bootstrap 5.
-            It allows users to view monthly calendars in a clean and minimal design without distractions.
-        </p>
-    </div>
-</section>
+    <!-- Description -->
+    <section id="about" class="container my-5">
+        <div class="bg-white p-4 rounded shadow-sm">
+            <h3>About This Tool</h3>
+            <p class="text-muted">
+                This Calendar Generator is a lightweight, responsive web application built with Bootstrap 5.
+                It allows users to view monthly calendars in a clean and minimal design without distractions.
+            </p>
+        </div>
+    </section>
 
-<!-- Footer -->
-<footer class="bg-primary text-white text-center py-3 mt-5">
-    <div class="container">
-        <small>&copy; 2026 Calendar Generator. All rights reserved.</small>
-    </div>
-</footer>
+    <!-- Footer -->
+    <footer class="bg-primary text-white text-center py-3 mt-5">
+        <div class="container">
+            <small>© <script type='text/javascript'>
+                    var creditsyear = new Date();
+                    document.write(creditsyear.getFullYear());
+                </script> Calendar Generator. All rights reserved.</small>
+        </div>
+    </footer>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
-<script>
-let currentDate = new Date();
+    <script>
+        let currentDate = new Date();
 
-function renderCalendar() {
-    const monthYear = document.getElementById('monthYear');
-    const calendarBody = document.getElementById('calendarBody');
+        function renderCalendar() {
+            const monthYear = document.getElementById('monthYear');
+            const calendarBody = document.getElementById('calendarBody');
 
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth();
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
 
-    const firstDay = new Date(year, month, 1).getDay();
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September",
+                "October", "November", "December"
+            ];
 
-    monthYear.textContent = monthNames[month] + " " + year;
+            monthYear.textContent = monthNames[month] + " " + year;
 
-    let html = "";
-    let date = 1;
+            let html = "";
+            let date = 1;
 
-    for (let i = 0; i < 6; i++) {
-        html += "<tr>";
+            for (let i = 0; i < 6; i++) {
+                html += "<tr>";
 
-        for (let j = 0; j < 7; j++) {
-            if (i === 0 && j < firstDay) {
-                html += "<td></td>";
-            } else if (date > daysInMonth) {
-                html += "<td></td>";
-            } else {
-                html += `<td class='bg-white'>${date}</td>`;
-                date++;
+                for (let j = 0; j < 7; j++) {
+                    if (i === 0 && j < firstDay) {
+                        html += "<td></td>";
+                    } else if (date > daysInMonth) {
+                        html += "<td></td>";
+                    } else {
+                        html += `<td class='bg-white'>${date}</td>`;
+                        date++;
+                    }
+                }
+
+                html += "</tr>";
             }
+
+            calendarBody.innerHTML = html;
         }
 
-        html += "</tr>";
-    }
+        function prevMonth() {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar();
+        }
 
-    calendarBody.innerHTML = html;
-}
+        function nextMonth() {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar();
+        }
 
-function prevMonth() {
-    currentDate.setMonth(currentDate.getMonth() - 1);
-    renderCalendar();
-}
-
-function nextMonth() {
-    currentDate.setMonth(currentDate.getMonth() + 1);
-    renderCalendar();
-}
-
-renderCalendar();
-</script>
+        renderCalendar();
+    </script>
 
 </body>
+
 </html>

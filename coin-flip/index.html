@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no' name='viewport' />
+  <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'
+    name='viewport' />
   <meta name="description" content="Coin Flip - Simple random coin flip generator online">
   <meta name="keywords" content="coin flip, random, heads tails, simple game">
   <meta name="author" content="Coin Flip App">
@@ -18,116 +20,120 @@
 
 <body class="bg-light text-dark">
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-none stickty-top">
-  <div class="container">
-    <a class="navbar-brand fw-bold text-primary" href="#">
-      <i class="fa-solid fa-coins"></i> Coin Flip
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light border-bottom bg-white shadow-none sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">
+        <i class="fa-solid fa-coins text-primary"></i> Coin Flip
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#ads">Ads</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- HEADER -->
-<header class="py-5 bg-white border-bottom">
-  <div class="container text-center">
-    <h1 class="fw-bold text-dark">Simple Coin Flip Generator</h1>
-    <p class="text-muted">Flip a coin instantly and get random Heads or Tails result.</p>
-  </div>
-</header>
-
-<!-- MAIN CONTENT -->
-<section class="py-5">
-  <div class="container text-center">
-
-    <div class="card shadow-sm border-0 mx-auto" style="max-width: 420px;">
-      <div class="card-body p-4">
-
-        <h2 class="mb-3">Result</h2>
-
-        <div id="coin" class="display-4 fw-bold text-primary mb-3">
-          <i class="fa-solid fa-coins"></i>
-        </div>
-
-        <button class="btn btn-primary w-100 mb-2" onclick="flipCoin()">
-          Flip Coin
-        </button>
-
-        <button class="btn btn-outline-secondary w-100" onclick="resetCoin()">
-          Reset
-        </button>
-
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#ads">Ads</a></li>
+        </ul>
       </div>
     </div>
+  </nav>
 
-  </div>
-</section>
-
-<!-- DESCRIPTION -->
-<section id="about" class="py-5 bg-white border-top border-bottom">
-  <div class="container text-center">
-    <h3 class="fw-bold">About This Tool</h3>
-    <p class="text-muted">
-      This Coin Flip tool generates a random result between Heads and Tails.
-      It can be used for decision making, games, or simple randomness testing.
-    </p>
-  </div>
-</section>
-
-<!-- ADS SECTION -->
-<section id="ads" class="py-5">
-  <div class="container">
-    <div class="text-center mb-3">
-      <h4 class="fw-bold">Advertisement</h4>
-      <p class="text-muted">Place your ads here</p>
+  <!-- HEADER -->
+  <header class="py-5 bg-white border-bottom">
+    <div class="container text-center">
+      <h1 class="fw-bold text-dark">Simple Coin Flip Generator</h1>
+      <p class="text-muted">Flip a coin instantly and get random Heads or Tails result.</p>
     </div>
+  </header>
 
-    <div class="border rounded bg-white shadow-none stickty-top p-5 text-center">
-      <i class="fa-solid fa-ad fa-2x text-secondary mb-3"></i>
-      <p class="text-muted mb-0">Your ad banner space (responsive)</p>
+  <!-- MAIN CONTENT -->
+  <section class="py-5">
+    <div class="container text-center">
+
+      <div class="card shadow-sm border-0 mx-auto" style="max-width: 420px;">
+        <div class="card-body p-4">
+
+          <h2 class="mb-3">Result</h2>
+
+          <div id="coin" class="display-4 fw-bold text-primary mb-3">
+            <i class="fa-solid fa-coins"></i>
+          </div>
+
+          <button class="btn btn-primary w-100 mb-2" onclick="flipCoin()">
+            Flip Coin
+          </button>
+
+          <button class="btn btn-outline-secondary w-100" onclick="resetCoin()">
+            Reset
+          </button>
+
+        </div>
+      </div>
+
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer class="bg-white border-top py-3">
-  <div class="container text-center">
-    <small class="text-muted">
-      © 2026 Coin Flip App. Built with Bootstrap.
-    </small>
-  </div>
-</footer>
+  <!-- DESCRIPTION -->
+  <section id="about" class="py-5 bg-white border-top border-bottom">
+    <div class="container text-center">
+      <h3 class="fw-bold">About This Tool</h3>
+      <p class="text-muted">
+        This Coin Flip tool generates a random result between Heads and Tails.
+        It can be used for decision making, games, or simple randomness testing.
+      </p>
+    </div>
+  </section>
 
-<!-- SCRIPT -->
-<script>
-  function flipCoin() {
-    const coin = document.getElementById("coin");
-    const result = Math.random() < 0.5 ? "HEADS" : "TAILS";
+  <!-- ADS SECTION -->
+  <section id="ads" class="py-5">
+    <div class="container">
+      <div class="text-center mb-3">
+        <h4 class="fw-bold">Advertisement</h4>
+        <p class="text-muted">Place your ads here</p>
+      </div>
 
-    coin.innerHTML = `
+      <div class="border rounded bg-white shadow-none sticky-top p-5 text-center">
+        <i class="fa-solid fa-ad fa-2x text-secondary mb-3"></i>
+        <p class="text-muted mb-0">Your ad banner space (responsive)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-top py-3">
+    <div class="container text-center">
+      <small class="text-muted">
+        © <script type='text/javascript'>
+          var creditsyear = new Date();
+          document.write(creditsyear.getFullYear());
+        </script> Coin Flip App. Built with Bootstrap.
+      </small>
+    </div>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    function flipCoin() {
+      const coin = document.getElementById("coin");
+      const result = Math.random() < 0.5 ? "HEADS" : "TAILS";
+
+      coin.innerHTML = `
       <div class="text-success fw-bold">${result}</div>
       <i class="fa-solid fa-coins text-warning"></i>
     `;
-  }
+    }
 
-  function resetCoin() {
-    const coin = document.getElementById("coin");
-    coin.innerHTML = `<i class="fa-solid fa-coins"></i>`;
-  }
-</script>
+    function resetCoin() {
+      const coin = document.getElementById("coin");
+      coin.innerHTML = `<i class="fa-solid fa-coins"></i>`;
+    }
+  </script>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>

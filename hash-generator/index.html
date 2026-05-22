@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,100 +20,104 @@
 
 <body class="bg-light text-dark">
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="container">
-    <a class="navbar-brand fw-bold" href="#">
-      <i class="fa-solid fa-fingerprint me-2"></i>Hash Generator
-    </a>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">
+        <i class="fa-solid fa-fingerprint me-2"></i>Hash Generator
+      </a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#tool">Tool</a></li>
-        <li class="nav-item"><a class="nav-link" href="#ads">Ads</a></li>
-      </ul>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tool">Tool</a></li>
+          <li class="nav-item"><a class="nav-link" href="#ads">Ads</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<!-- HEADER -->
-<header class="py-5 text-center bg-white border-bottom">
-  <div class="container">
-    <h1 class="fw-bold">Secure Hash Generator</h1>
-    <p class="text-muted mb-0">
-      Generate SHA-256 hashes instantly in your browser. No server, no tracking.
-    </p>
-  </div>
-</header>
-
-<!-- MAIN -->
-<main class="container my-5">
-
-  <!-- TOOL -->
-  <section id="tool" class="bg-white p-4 rounded shadow-sm">
-    <h4 class="mb-3"><i class="fa-solid fa-key me-2"></i>Generate Hash</h4>
-
-    <div class="mb-3">
-      <label class="form-label">Input Text</label>
-      <input type="text" id="inputText" class="form-control" placeholder="Enter text here...">
+  <!-- HEADER -->
+  <header class="py-5 text-center bg-white border-bottom">
+    <div class="container">
+      <h1 class="fw-bold">Secure Hash Generator</h1>
+      <p class="text-muted mb-0">
+        Generate SHA-256 hashes instantly in your browser. No server, no tracking.
+      </p>
     </div>
+  </header>
 
-    <button class="btn btn-primary" onclick="generateHash()">
-      Generate SHA-256
-    </button>
+  <!-- MAIN -->
+  <main class="container my-5">
 
-    <div class="mt-4">
-      <label class="form-label">Output Hash</label>
-      <textarea id="outputHash" class="form-control" rows="3" readonly></textarea>
+    <!-- TOOL -->
+    <section id="tool" class="bg-white p-4 rounded shadow-sm">
+      <h4 class="mb-3"><i class="fa-solid fa-key me-2"></i>Generate Hash</h4>
+
+      <div class="mb-3">
+        <label class="form-label">Input Text</label>
+        <input type="text" id="inputText" class="form-control" placeholder="Enter text here...">
+      </div>
+
+      <button class="btn btn-primary" onclick="generateHash()">
+        Generate SHA-256
+      </button>
+
+      <div class="mt-4">
+        <label class="form-label">Output Hash</label>
+        <textarea id="outputHash" class="form-control" rows="3" readonly></textarea>
+      </div>
+    </section>
+
+    <!-- ADS SECTION -->
+    <section id="ads" class="my-5">
+      <div class="bg-white border rounded p-4 text-center">
+        <h5 class="text-muted">Advertisement Space</h5>
+        <p class="mb-0">Place your banner ads or Google AdSense here.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-primary text-white py-3 mt-5">
+    <div class="container text-center">
+      <small>© <script type='text/javascript'>
+          var creditsyear = new Date();
+          document.write(creditsyear.getFullYear());
+        </script> Hash Generator. All rights reserved.</small>
     </div>
-  </section>
+  </footer>
 
-  <!-- ADS SECTION -->
-  <section id="ads" class="my-5">
-    <div class="bg-white border rounded p-4 text-center">
-      <h5 class="text-muted">Advertisement Space</h5>
-      <p class="mb-0">Place your banner ads or Google AdSense here.</p>
-    </div>
-  </section>
+  <!-- SCRIPT -->
+  <script>
+    async function generateHash() {
+      const text = document.getElementById("inputText").value;
+      const output = document.getElementById("outputHash");
 
-</main>
+      if (!text) {
+        output.value = "Please enter text first.";
+        return;
+      }
 
-<!-- FOOTER -->
-<footer class="bg-primary text-white py-3 mt-5">
-  <div class="container text-center">
-    <small>&copy; 2026 Hash Generator. All rights reserved.</small>
-  </div>
-</footer>
+      const encoder = new TextEncoder();
+      const data = encoder.encode(text);
 
-<!-- SCRIPT -->
-<script>
-async function generateHash() {
-  const text = document.getElementById("inputText").value;
-  const output = document.getElementById("outputHash");
+      const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 
-  if (!text) {
-    output.value = "Please enter text first.";
-    return;
-  }
+      output.value = hashHex;
+    }
+  </script>
 
-  const encoder = new TextEncoder();
-  const data = encoder.encode(text);
-
-  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-
-  output.value = hashHex;
-}
-</script>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>

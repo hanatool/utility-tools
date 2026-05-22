@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no' name='viewport' />
+  <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'
+    name='viewport' />
   <meta name="description" content="Modern Currency Converter - Convert currencies instantly with live exchange rates.">
   <meta name="keywords" content="currency converter, exchange rate, money converter">
   <meta name="author" content="Currency Converter App">
@@ -18,164 +20,168 @@
 
 <body class="bg-light text-dark">
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-none stickty-top">
-  <div class="container">
-    <a class="navbar-brand fw-bold text-primary" href="#">
-      <i class="fa-solid fa-coins me-2"></i>Currency Converter
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light border-bottom bg-white shadow-none sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">
+        <i class="fa-solid fa-coins text-primary me-2"></i>Currency Converter
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#converter">Converter</a></li>
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- Header -->
-<header class="py-5 text-center bg-white border-bottom">
-  <div class="container">
-    <h1 class="fw-bold text-dark">Currency Converter</h1>
-    <p class="text-muted">Fast, simple, and live exchange rate converter</p>
-  </div>
-</header>
-
-<!-- Ad Space Top -->
-<div class="container my-3">
-  <div class="alert alert-secondary text-center">
-    Advertisement Space (Top Banner)
-  </div>
-</div>
-
-<!-- Converter Section -->
-<section id="converter" class="py-5">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8 col-lg-6">
-
-        <div class="card shadow-sm border-0">
-          <div class="card-body p-4">
-
-            <h4 class="mb-3 text-center fw-bold">
-              <i class="fa-solid fa-sack-dollar text-primary me-2"></i>Convert Currency
-            </h4>
-
-            <div class="mb-3">
-              <label class="form-label">Amount</label>
-              <input type="number" id="amount" class="form-control" placeholder="Enter amount">
-            </div>
-
-            <div class="row">
-              <div class="col-6 mb-3">
-                <label class="form-label">From</label>
-                <select id="fromCurrency" class="form-select"></select>
-              </div>
-
-              <div class="col-6 mb-3">
-                <label class="form-label">To</label>
-                <select id="toCurrency" class="form-select"></select>
-              </div>
-            </div>
-
-            <button class="btn btn-primary w-100" onclick="convertCurrency()">
-              Convert
-            </button>
-
-            <div class="mt-4 text-center">
-              <h5 id="result" class="fw-bold text-success"></h5>
-            </div>
-
-          </div>
-        </div>
-
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#converter">Converter</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        </ul>
       </div>
     </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="py-5 text-center bg-white border-bottom">
+    <div class="container">
+      <h1 class="fw-bold text-dark">Currency Converter</h1>
+      <p class="text-muted">Fast, simple, and live exchange rate converter</p>
+    </div>
+  </header>
+
+  <!-- Ad Space Top -->
+  <div class="container my-3">
+    <div class="alert alert-secondary text-center">
+      Advertisement Space (Top Banner)
+    </div>
   </div>
-</section>
 
-<!-- Ad Space Middle -->
-<div class="container my-4">
-  <div class="alert alert-secondary text-center">
-    Advertisement Space (Middle Banner)
+  <!-- Converter Section -->
+  <section id="converter" class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+
+          <div class="card shadow-sm border-0">
+            <div class="card-body p-4">
+
+              <h4 class="mb-3 text-center fw-bold">
+                <i class="fa-solid fa-sack-dollar text-primary me-2"></i>Convert Currency
+              </h4>
+
+              <div class="mb-3">
+                <label class="form-label">Amount</label>
+                <input type="number" id="amount" class="form-control" placeholder="Enter amount">
+              </div>
+
+              <div class="row">
+                <div class="col-6 mb-3">
+                  <label class="form-label">From</label>
+                  <select id="fromCurrency" class="form-select"></select>
+                </div>
+
+                <div class="col-6 mb-3">
+                  <label class="form-label">To</label>
+                  <select id="toCurrency" class="form-select"></select>
+                </div>
+              </div>
+
+              <button class="btn btn-primary w-100" onclick="convertCurrency()">
+                Convert
+              </button>
+
+              <div class="mt-4 text-center">
+                <h5 id="result" class="fw-bold text-success"></h5>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ad Space Middle -->
+  <div class="container my-4">
+    <div class="alert alert-secondary text-center">
+      Advertisement Space (Middle Banner)
+    </div>
   </div>
-</div>
 
-<!-- About -->
-<section id="about" class="py-5 bg-white border-top border-bottom">
-  <div class="container text-center">
-    <h3 class="fw-bold">About This Tool</h3>
-    <p class="text-muted mt-3">
-      This currency converter uses live exchange rates from a free API.
-      It is designed to be fast, lightweight, and mobile-friendly.
-    </p>
-  </div>
-</section>
+  <!-- About -->
+  <section id="about" class="py-5 bg-white border-top border-bottom">
+    <div class="container text-center">
+      <h3 class="fw-bold">About This Tool</h3>
+      <p class="text-muted mt-3">
+        This currency converter uses live exchange rates from a free API.
+        It is designed to be fast, lightweight, and mobile-friendly.
+      </p>
+    </div>
+  </section>
 
-<!-- Footer -->
-<footer class="bg-white text-center py-4 border-top">
-  <div class="container">
-    <p class="mb-0 text-muted">
-      © 2026 Currency Converter. Built with <i class="fa-solid fa-heart text-danger"></i>
-    </p>
-  </div>
-</footer>
+  <!-- Footer -->
+  <footer class="bg-white text-center py-4 border-top">
+    <div class="container">
+      <p class="mb-0 text-muted">
+        © <script type='text/javascript'>
+          var creditsyear = new Date();
+          document.write(creditsyear.getFullYear());
+        </script> Currency Converter. Built with <i class="fa-solid fa-heart text-danger"></i>
+      </p>
+    </div>
+  </footer>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Script -->
-<script>
-  const apiURL = "https://api.frankfurter.app/currencies";
+  <!-- Script -->
+  <script>
+    const apiURL = "https://api.frankfurter.app/currencies";
 
-  const fromSelect = document.getElementById("fromCurrency");
-  const toSelect = document.getElementById("toCurrency");
+    const fromSelect = document.getElementById("fromCurrency");
+    const toSelect = document.getElementById("toCurrency");
 
-  // Load currencies
-  fetch(apiURL)
-    .then(res => res.json())
-    .then(data => {
-      Object.keys(data).forEach(currency => {
-        let option1 = document.createElement("option");
-        let option2 = document.createElement("option");
-
-        option1.value = option2.value = currency;
-        option1.textContent = option2.textContent = currency;
-
-        fromSelect.appendChild(option1);
-        toSelect.appendChild(option2);
-      });
-
-      fromSelect.value = "USD";
-      toSelect.value = "EUR";
-    });
-
-  function convertCurrency() {
-    let amount = document.getElementById("amount").value;
-    let from = fromSelect.value;
-    let to = toSelect.value;
-
-    if (!amount) {
-      alert("Please enter amount");
-      return;
-    }
-
-    fetch(`https://api.frankfurter.app/latest?amount=${amount}&from=${from}&to=${to}`)
+    // Load currencies
+    fetch(apiURL)
       .then(res => res.json())
       .then(data => {
-        document.getElementById("result").innerText =
-          `${amount} ${from} = ${data.rates[to]} ${to}`;
-      })
-      .catch(() => {
-        document.getElementById("result").innerText = "Error fetching rates";
+        Object.keys(data).forEach(currency => {
+          let option1 = document.createElement("option");
+          let option2 = document.createElement("option");
+
+          option1.value = option2.value = currency;
+          option1.textContent = option2.textContent = currency;
+
+          fromSelect.appendChild(option1);
+          toSelect.appendChild(option2);
+        });
+
+        fromSelect.value = "USD";
+        toSelect.value = "EUR";
       });
-  }
-</script>
+
+    function convertCurrency() {
+      let amount = document.getElementById("amount").value;
+      let from = fromSelect.value;
+      let to = toSelect.value;
+
+      if (!amount) {
+        alert("Please enter amount");
+        return;
+      }
+
+      fetch(`https://api.frankfurter.app/latest?amount=${amount}&from=${from}&to=${to}`)
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById("result").innerText =
+            `${amount} ${from} = ${data.rates[to]} ${to}`;
+        })
+        .catch(() => {
+          document.getElementById("result").innerText = "Error fetching rates";
+        });
+    }
+  </script>
 
 </body>
+
 </html>
