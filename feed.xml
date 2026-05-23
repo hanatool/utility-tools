@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+
+  <channel>
+
+    <title>Hanapha Utility Tools</title>
+    <link>https://tools.hanapha.com/utility-tools/</link>
+
+    <description>
+      Free online utility tools for calculations, conversions, formatting, generators, timers, productivity, and everyday web utilities.
+    </description>
+
+    <language>en-us</language>
+
+    <item>
+      <title>Age Calculator</title>
+      <link>https://tools.hanapha.com/utility-tools/age-calculator</link>
+      <description>Calculate age accurately from birth date online.</description>
+    </item>
+
+    <item>
+      <title>Barcode Generator</title>
+      <link>https://tools.hanapha.com/utility-tools/barcode-generator</link>
+      <description>Generate barcode images instantly online.</description>
+    </item>
+
+    <item>
+      <title>Base64 Decoder</title>
+      <link>https://tools.hanapha.com/utility-tools/base64-decoder</link>
+      <description>Decode Base64 encoded text quickly online.</description>
+    </item>
+
+    <item>
+      <title>Base64 Encoder</title>
+      <link>https://tools.hanapha.com/utility-tools/base64-encoder</link>
+      <description>Encode text into Base64 format instantly.</description>
+    </item>
+
+    <item>
+      <title>Binary Converter</title>
+      <link>https://tools.hanapha.com/utility-tools/binary-converter</link>
+      <description>Convert numbers between binary and decimal formats.</description>
+    </item>
+
+    <item>
+      <title>BMI Calculator</title>
+      <link>https://tools.hanapha.com/utility-tools/bmi-calculator</link>
+      <description>Calculate body mass index quickly online.</description>
+    </item>
+
+    <item>
+      <title>Calendar Generator</title>
+      <link>https://tools.hanapha.com/utility-tools/calendar-generator</link>
+      <description>Create printable calendars instantly online.</description>
+    </item>
+
+    <item>
+      <title>Coin Flip</title>
+      <link>https://tools.hanapha.com/utility-tools/coin-flip</link>
+      <description>Flip a virtual coin randomly online.</description>
+    </item>
+
+    <item>
+      <title>Countdown Timer</title>
+      <link>https://tools.hanapha.com/utility-tools/countdown-timer</link>
+      <description>Create countdown timers for tasks and events.</description>
+    </item>
+
+    <item>
+      <title>CSV to JSON</title>
+      <link>https://tools.hanapha.com/utility-tools/csv-to-json</link>
+      <description>Convert CSV files into JSON format easily.</description>
+    </item>
+
+    <item>
+      <title>Currency Converter</title>
+      <link>https://tools.hanapha.com/utility-tools/currency-converter</link>
+      <description>Convert currencies online with exchange calculations.</description>
+    </item>
+
+    <item>
+      <title>Dice Roller</title>
+      <link>https://tools.hanapha.com/utility-tools/dice-roller</link>
+      <description>Roll virtual dice randomly online instantly.</description>
+    </item>
+
+    <item>
+      <title>File Size Calculator</title>
+      <link>https://tools.hanapha.com/utility-tools/file-size-calculator</link>
+      <description>Calculate and convert file sizes easily online.</description>
+    </item>
+
+    <item>
+      <title>Hash Generator</title>
+      <link>https://tools.hanapha.com/utility-tools/hash-generator</link>
+      <description>Generate secure hashes for text and data.</description>
+    </item>
+
+    <item>
+      <title>JSON Formatter</title>
+      <link>https://tools.hanapha.com/utility-tools/json-formatter</link>
+      <description>Format and beautify JSON data instantly online.</description>
+    </item>
+
+    <item>
+      <title>Loan Calculator</title>
+      <link>https://tools.hanapha.com/utility-tools/loan-calculator</link>
+      <description>Calculate loan payments and interest easily.</description>
+    </item>
+
+    <item>
+      <title>Lorem Ipsum Generator</title>
+      <link>https://tools.hanapha.com/utility-tools/lorem-ipsum-generator</link>
+      <description>Generate placeholder Lorem Ipsum text quickly.</description>
+    </item>
+
+    <item>
+      <title>Percentage Calculator</title>
+      <link>https://tools.hanapha.com/utility-tools/percentage-calculator</link>
+      <description>Calculate percentages and ratios online instantly.</description>
+    </item>
+
+    <item>
+      <title>Pomodoro Timer</title>
+      <link>https://tools.hanapha.com/utility-tools/pomodoro-timer</link>
+      <description>Boost productivity with a Pomodoro timer.</description>
+    </item>
+
+    <item>
+      <title>QR Code Generator</title>
+      <link>https://tools.hanapha.com/utility-tools/qr-code-generator</link>
+      <description>Create QR codes instantly online.</description>
+    </item>
+
+    <item>
+      <title>QR Generator</title>
+      <link>https://tools.hanapha.com/utility-tools/qr-generator</link>
+      <description>Generate custom QR codes quickly and easily.</description>
+    </item>
+
+    <item>
+      <title>Random Number Generator</title>
+      <link>https://tools.hanapha.com/utility-tools/random-number-generator</link>
+      <description>Generate random numbers instantly online.</description>
+    </item>
+
+    <item>
+      <title>Roman Numeral Converter</title>
+      <link>https://tools.hanapha.com/utility-tools/roman-numeral-converter</link>
+      <description>Convert numbers into Roman numerals easily.</description>
+    </item>
+
+    <item>
+      <title>Stopwatch</title>
+      <link>https://tools.hanapha.com/utility-tools/stopwatch</link>
+      <description>Use an online stopwatch with lap timing support.</description>
+    </item>
+
+    <item>
+      <title>Text Diff Checker</title>
+      <link>https://tools.hanapha.com/utility-tools/text-diff-checker</link>
+      <description>Compare text differences instantly online.</description>
+    </item>
+
+    <item>
+      <title>Time Zone Converter</title>
+      <link>https://tools.hanapha.com/utility-tools/time-zone-converter</link>
+      <description>Convert times between global time zones easily.</description>
+    </item>
+
+    <item>
+      <title>Timestamp Converter</title>
+      <link>https://tools.hanapha.com/utility-tools/timestamp-converter</link>
+      <description>Convert Unix timestamps into readable dates.</description>
+    </item>
+
+    <item>
+      <title>Unit Converter</title>
+      <link>https://tools.hanapha.com/utility-tools/unit-converter</link>
+      <description>Convert units for length, weight, speed, and more.</description>
+    </item>
+
+    <item>
+      <title>UUID Bulk Generator</title>
+      <link>https://tools.hanapha.com/utility-tools/uuid-bulk-generator</link>
+      <description>Generate multiple UUIDs instantly online.</description>
+    </item>
+
+    <item>
+      <title>UUID Generator</title>
+      <link>https://tools.hanapha.com/utility-tools/uuid-generator</link>
+      <description>Generate random UUID identifiers online.</description>
+    </item>
+
+    <item>
+      <title>UUID Validator</title>
+      <link>https://tools.hanapha.com/utility-tools/uuid-validator</link>
+      <description>Validate UUID format and structure instantly.</description>
+    </item>
+
+    <item>
+      <title>Word Counter</title>
+      <link>https://tools.hanapha.com/utility-tools/word-counter</link>
+      <description>Count words, characters, and text statistics online.</description>
+    </item>
+
+    <item>
+      <title>XML Formatter</title>
+      <link>https://tools.hanapha.com/utility-tools/xml-formatter</link>
+      <description>Beautify and format XML code online easily.</description>
+    </item>
+
+  </channel>
+
+</rss>
